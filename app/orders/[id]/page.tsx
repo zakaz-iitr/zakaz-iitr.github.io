@@ -1,41 +1,17 @@
-"use client"
-
-// ============ COMMENTED OUT: Order Tracking page (disabled per order-flow simplification) ============
-// import { useState, useEffect, use } from "react"
-// import Link from "next/link"
-// import Image from "next/image"
-// import { useSearchParams } from "next/navigation"
-// import { ArrowLeft, Phone, MessageCircle, MapPin, Clock, Store } from "lucide-react"
-// import { OrderTimeline } from "@/components/order/order-timeline"
-// import { BottomNav } from "@/components/layout/bottom-nav"
-// import { useStoreData, useStorePath } from "@/context/StoreContext"
-
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
-import { useStorePath } from "@/context/StoreContext"
-
-// type OrderStatus = "confirmed" | "preparing" | "ready" | "picked-up" | "on-the-way" | "delivered"
+import { redirect } from "next/navigation"
 
 interface OrderPageProps {
   params: Promise<{ id: string }>
 }
 
-export const dynamicParams = false
+export async function generateStaticParams() {
+  return []
+}
 
-export default function OrderTrackingPage({ params }: OrderPageProps) {
-  const router = useRouter()
-  const storePath = useStorePath()
-
-  // Redirect to home since order tracking page is disabled
-  useEffect(() => {
-    router.replace(storePath("/"))
-  }, [router, storePath])
-
-  return (
-    <div className="min-h-screen bg-background flex items-center justify-center">
-      <p className="text-muted-foreground font-medium">Redirecting to home...</p>
-    </div>
-  )
+export default async function OrderTrackingPage({ params }: OrderPageProps) {
+  // Order tracking page disabled - redirect to home
+  redirect("/")
+}
 
   // ============ ORIGINAL ORDER TRACKING PAGE BELOW (COMMENTED OUT) ============
   /*
