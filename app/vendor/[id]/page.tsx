@@ -16,9 +16,7 @@ interface VendorPageProps {
   params: Promise<{ id: string }>
 }
 
-export async function generateStaticParams() {
-  return [{ id: "cbri" }]
-}
+export const dynamicParams = false
 
 export default function VendorPage({ params }: VendorPageProps) {
   const { id } = use(params)

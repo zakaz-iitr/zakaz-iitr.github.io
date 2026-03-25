@@ -6,12 +6,7 @@ interface StoreVendorPageProps {
   params: Promise<{ store: string; id: string }>
 }
 
-export async function generateStaticParams() {
-  return [
-    { store: "cbri-inside", id: "cbri" },
-    { store: "cbri-outside", id: "cbri" }
-  ]
-}
+export const dynamicParams = false
 
 export default async function StoreVendorPage({ params }: StoreVendorPageProps) {
   const { store, id } = await params
