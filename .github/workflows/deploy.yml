@@ -22,15 +22,15 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: cd frontend && pnpm install
+        run: pnpm install
 
       - name: Build
-        run: cd frontend && pnpm run build
+        run: pnpm run build
 
       - name: Upload artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: frontend/out
+          path: out
 
   deploy:
     needs: build
