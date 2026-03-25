@@ -6,6 +6,13 @@ interface StoreProfilePageProps {
   params: Promise<{ store: string }>
 }
 
+export async function generateStaticParams() {
+  return [
+    { store: "cbri-inside" },
+    { store: "cbri-outside" }
+  ]
+}
+
 export default async function StoreProfilePage({ params }: StoreProfilePageProps) {
   const { store } = await params
   if (!isValidStoreSlug(store)) notFound()
