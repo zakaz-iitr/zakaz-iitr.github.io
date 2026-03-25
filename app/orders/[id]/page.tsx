@@ -20,6 +20,10 @@ interface OrderPageProps {
   params: Promise<{ id: string }>
 }
 
+export async function generateStaticParams() {
+  return []
+}
+
 export default function OrderTrackingPage({ params }: OrderPageProps) {
   const router = useRouter()
   const storePath = useStorePath()
